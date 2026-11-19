@@ -1,0 +1,41 @@
+{
+  "skill_name": "qa-test-automation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Automatiza este cenário do Lunar Pass:\n\nContexto: Dado que estou autenticado no controle de missões\n\nCenário: não deve registrar uma nova missão com o código duplicado\nDado que já existe uma missão com o mesmo identificador\nQuando eu tento registrar uma nova missão com esse identificador\nEntão eu sou informado de que já existe uma missão com este ID",
+      "expected_output": "Lê references/projeto-lunarpass.md e docs/arquitetura.md, descobre a tela de Mission Control com o Playwright MCP, reutiliza RegisterPage/DashPage/LoginPage, registra só se faltar algo na fixture, prepara a missão com cleanAndInsertMission e ID exclusivo, escreve o spec em playwright/e2e/mission-control/ importando de ../../support, roda com --project=mission-control e entrega o resumo.",
+      "assertions": [
+        "Lê o mapa do Lunar Pass / arquitetura antes de escrever código",
+        "O spec importa test e expect de ../../support e usa app.mission",
+        "A massa usa funções de playwright/support/db.ts e um ID de missão que não colide com LP-2026A/LP-3002B se for teste novo",
+        "Não instancia Page Object com new no spec",
+        "Há uma asserção para o Então, sem waitForTimeout",
+        "O teste foi executado com o project mission-control e o resultado informado é o observado"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Automatiza o cenário de storefront em que o viajante vê a missão que eu cadastrei na vitrine. O Dado pede uma reserva e um ticket já gravados no banco.",
+      "expected_output": "Percebe que db.ts só apaga reserva e ticket, não insere. Não inventa schema nem insert. Pergunta como obter esse estado. Não altera db.ts para 'adivinhar' colunas.",
+      "assertions": [
+        "Identifica a ausência de insertReservation/insertTicket",
+        "Não inventa colunas nem funções de insert",
+        "Pergunta antes de simular o estado por outro meio",
+        "Não altera a connection string"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Automatiza o cenário 'deve exibir o slogan da aplicação'. A aplicação em http://localhost:3000 não responde.",
+      "expected_output": "Detecta que a aplicação está indisponível, não inventa locators, entrega como não executado, não declara que passou e não altera playwright.config.ts nem db.ts.",
+      "assertions": [
+        "Informa que a aplicação não respondeu em localhost:3000",
+        "Não inventa locators de telas que não conseguiu ver",
+        "Não declara que o teste passou",
+        "O resumo marca o resultado como 'não executado' com o motivo",
+        "Não altera configuração, credenciais ou endereços para contornar o problema"
+      ]
+    }
+  ]
+}
