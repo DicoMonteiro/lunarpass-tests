@@ -19,3 +19,5 @@ Automatize os cenários da funcionalidade de "Busca de Missoes", documentado em 
 Automatize os cenários funcionalidade de "Pagamento e Emissão do Ticket", documentado em `docs/storefront-v2.md`.
 
 Automatize os cenários funcionalidade de "Mapa de Assentos", documentado em `docs/storefront-v2.md`.
+
+Automatize os cenários funcionalidade de "Passageiros", documentado em `docs/storefront-v2.md`, seguindo a arquitetura definida no projeto e reforçada em `docs/arquitetura.md` utilizando o page object, tenha cuidado de seguir os padrões corretos e definir nomenclaturas mais fieis a funcionalidade.
